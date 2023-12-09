@@ -13,7 +13,19 @@
 //     { firstName: 'Karlach', lastName: 'Cliffgate', location: 'Avernus' }
 //   ]);
 //   => ['Gale Dekarios', 'Wyll Ravengard', 'Karlach Cliffgate'];
-function getNames(people) {}
+// complete
+function getNames(people) {
+  let fullNames = people.map((element, index, array) => {
+    return people[index].firstName + ' ' + people[index].lastName
+  })
+  return fullNames
+}
+getNames([
+  { firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' },
+  { firstName: 'Wyll', lastName: 'Ravengard', location: "Baldur's Gate" },
+  { firstName: 'Karlach', lastName: 'Cliffgate', location: 'Avernus' }
+]);
+
 
 // Given an object representing a person, return their full name (first name and last name).
 // You MUST use object destructuring in your solution.
@@ -24,7 +36,26 @@ function getNames(people) {}
 // Ex.:
 //   getName({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
 //   => 'Gale Dekarios'
-function getNameUsingDestructuring(person) {}
+//completed
+function getNameUsingDestructuring(person) {
+  const {firstName: Gale, lastName: Dekarios} = person
+  return person.firstName + ' ' + person.lastName
+}
+getNameUsingDestructuring({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//works but not completed correctly bc not using **destructuring**
+  //   const propertyNames = Object.values(person)
+//   let fullName = propertyNames[0] + ' ' + propertyNames[1]
+  
+
+//   return fullName
+// }
+
+// getName({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
+
+/////////////////////////////////////////////////////////////////////////////////
 
 // Given an array of objects representing people, return a new array of the
 // people matching the given location.
@@ -103,7 +134,16 @@ function wordCount(str) {}
 //     }
 //   }, 1);
 //   => true
-function isBugAvailable(bug, month) {}
+function isBugAvailable(bug, month) {
+  return bug.availibility.months.includes(month)
+}
+isBugAvailable({
+      name: 'common butterfly',
+      availability: {
+        rarity: 'common',
+        months: [9, 10, 11, 12, 1, 2, 3, 4, 5, 6],
+      }
+    }, 1);
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the

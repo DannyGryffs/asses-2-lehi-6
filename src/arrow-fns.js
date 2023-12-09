@@ -3,9 +3,12 @@
 // Set the value of giveMeTwo to an arrow function that returns 2.
 //
 // Ex.:
-//   giveMeTwo();
+//   giveMeTwo();(
 //   => 2
-const giveMeTwo = undefined;
+//completed
+const giveMeTwo = () => 2 
+
+giveMeTwo();
 
 // Set the value of addNums to an arrow function that takes in two numbers and
 // returns their sum.
@@ -13,7 +16,10 @@ const giveMeTwo = undefined;
 // Ex.:
 //   addNums(1, 2);
 //   => 3
-const addNums = undefined;
+//completed
+const addNums = (num1, num2) => num1 + num2;
+
+addNums(1, 2);
 
 // Set the value of max to an arrow function that takes in two numbers and
 // returns the largest one.
@@ -21,7 +27,16 @@ const addNums = undefined;
 // Ex.:
 //   max(1, 2);
 //   => 2
-const max = undefined;
+//completed
+const max = (num1, num2) => {
+    if(num1 > num2){
+        return num1
+    }else{
+        return num2
+    }
+}
+
+max(1, 2);
 
 // Given an array of numbers, return a new array that only includes the even
 // numbers. Do this using array iteration methods. Do NOT use a for loop.
@@ -29,7 +44,13 @@ const max = undefined;
 // Ex.:
 //   evens([1, 2, 3, 4, 5]);
 //   => [2, 4]
-function evens(nums) {}
+//completed
+function evens(nums) {
+    let newArr = nums.filter ((element, index, arr) => {
+        return element % 2 === 0
+      })
+      return newArr
+}
 
 // Given an array of names, return a new array of greetings for each name. Do
 // this using array iteration methods. Do NOT use a for loop.
@@ -37,7 +58,14 @@ function evens(nums) {}
 // Ex.:
 //   createGreetings(['Clive', 'Jill', 'Torgal']);
 //   => ['Hello, Clive!', 'Hello, Jill!', 'Hello, Torgal!']
-function createGreetings(names) {}
+//completed
+function createGreetings(names) {
+    let newArr = names.map((element, index, array) => {
+        return `Hello, ${element}!`
+    })
+    return newArr
+}
+createGreetings(['Clive', 'Jill', 'Torgal']);
 
 // Given an array of words, return a new array where each word is uppercased
 // and only includes words that are longer than 4 characters. Do this using
@@ -46,6 +74,15 @@ function createGreetings(names) {}
 // Ex.:
 //   loudLongWords(['apple', 'pear', 'cake', 'pinata']);
 //   => ['APPLE', 'PINATA']
-function loudLongWords(words) {}
+//not there yet//
+function loudLongWords(words) {
+    let newArr = words.map((element, index, array) => {
+        if (element.length > 4){
+            return element.toUpperCase()
+        }
+    })
+    return newArr
+}
+loudLongWords(['apple', 'pear', 'cake', 'pinata']);
 
 export { addNums, createGreetings, evens, giveMeTwo, loudLongWords, max };
