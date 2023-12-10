@@ -13,12 +13,12 @@
 //     { firstName: 'Karlach', lastName: 'Cliffgate', location: 'Avernus' }
 //   ]);
 //   => ['Gale Dekarios', 'Wyll Ravengard', 'Karlach Cliffgate'];
-// complete
+// completed
 function getNames(people) {
   let fullNames = people.map((element, index, array) => {
-    return people[index].firstName + ' ' + people[index].lastName
+    return people[index].firstName + ' ' + people[index].lastName;
   })
-  return fullNames
+  return fullNames;
 }
 getNames([
   { firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' },
@@ -38,24 +38,13 @@ getNames([
 //   => 'Gale Dekarios'
 //completed
 function getNameUsingDestructuring(person) {
-  const {firstName: Gale, lastName: Dekarios} = person
-  return person.firstName + ' ' + person.lastName
+  const {firstName, lastName} = person;
+  return person.firstName + ' ' + person.lastName;
 }
 getNameUsingDestructuring({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
 
 
-/////////////////////////////////////////////////////////////////////////////////
-//works but not completed correctly bc not using **destructuring**
-  //   const propertyNames = Object.values(person)
-//   let fullName = propertyNames[0] + ' ' + propertyNames[1]
-  
 
-//   return fullName
-// }
-
-// getName({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
-
-/////////////////////////////////////////////////////////////////////////////////
 
 // Given an array of objects representing people, return a new array of the
 // people matching the given location.
@@ -74,7 +63,16 @@ getNameUsingDestructuring({ firstName: 'Gale', lastName: 'Dekarios', location: '
 //     { firstName: 'Wyll', lastName: 'Ravengard', location: "Baldur's Gate" },
 //     { firstName: 'Astarion', lastName: 'Ancunin', location: "Baldur's Gate" }
 //   ];
-function getPeopleByLocation(people, location) {}
+// completed
+function getPeopleByLocation(people, location) {
+  let newArr = [];
+  for (let i = 0; i < people.length; i++){
+    if(people[i].location === location){
+      newArr.push(people[i]);
+    }
+  }
+   return newArr;
+}
 
 // Translate a phrase to pirate talk.
 //
@@ -102,8 +100,42 @@ const EN_PIRATE_LOOKUP = {
   hotel: 'fleabag inn',
   hello: 'ahoy',
 };
-
-function translateToPirateTalk(phrase) {}
+// completed
+function translateToPirateTalk(phrase) {
+  const phraseWrds = phrase.split(' ')
+  const translate = phraseWrds.map((element, index, array) => {
+    if(element === 'excuse') {
+      return 'avast';
+    }else if(element === 'sir') {
+      return 'matey';
+    }else if(element === 'is') {
+      return 'be';
+    }else if(element === 'restroom') {
+      return 'head';
+    }else if(element === 'student') {
+      return 'swabbie';
+    }else if(element === 'friend') {
+      return 'matey';
+    }else if(element === 'restaurant') {
+      return 'galley';
+    }else if(element === 'your') {
+      return 'yer';
+    }else if(element === 'are') {
+      return 'be';
+    }else if(element === 'my') {
+      return 'me';
+    }else if(element === 'hotel') {
+      return 'fleabag inn';
+    }else if(element === 'hello') {
+      return 'ahoy';
+    }else{
+      return element;
+    }
+  })
+  const tWord = translate.join(' ');
+  return tWord;
+}
+translateToPirateTalk('excuse me sir where is the restroom');
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can
@@ -112,7 +144,17 @@ function translateToPirateTalk(phrase) {}
 // Ex.:
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
-function wordCount(str) {}
+function wordCount(str) { //go over w jared//can this be done w/o forEach//how
+  // const words = str.split(' '); //['hello' 'world']
+  // const wordCount = {};
+  //   for (i = 0; i < words.length; i++){
+  //     if (words[i] === words){
+  //       wordCount.push([words[i] + 1])
+  //     }else {
+  //       wordCount[i] = 1
+  //     }
+  //   }
+}
 
 // Given an object representing a bug, return true if the given bug is
 // available in the given month.
@@ -134,12 +176,13 @@ function wordCount(str) {}
 //     }
 //   }, 1);
 //   => true
+//complete but error somewhere!! --ask jared---
 function isBugAvailable(bug, month) {
   return bug.availibility.months.includes(month)
 }
 isBugAvailable({
       name: 'common butterfly',
-      availability: {
+      availibility: {
         rarity: 'common',
         months: [9, 10, 11, 12, 1, 2, 3, 4, 5, 6],
       }

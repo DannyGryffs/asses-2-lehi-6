@@ -76,12 +76,15 @@ createGreetings(['Clive', 'Jill', 'Torgal']);
 //   => ['APPLE', 'PINATA']
 //not there yet//
 function loudLongWords(words) {
-    let newArr = words.map((element, index, array) => {
+    let lWords = words.filter((element, index, array) => {
         if (element.length > 4){
-            return element.toUpperCase()
+            return element
         }
     })
-    return newArr
+   let finishedArr = lWords.map((element, index, array) => {
+      return element.toUpperCase()
+    })
+    return finishedArr
 }
 loudLongWords(['apple', 'pear', 'cake', 'pinata']);
 

@@ -1,0 +1,32 @@
+body {
+    background-color: black;
+}
+
+.text {
+    color: white;
+    font-family: sans-serif;
+    
+}
+
+.section {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+.cell-txt {
+    color: white;
+    font-family: sans-serif;
+    padding: 5px;
+}
+
+#table {
+    border-color: 1px, white;
+}
+
+#table-section {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
