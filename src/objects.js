@@ -145,17 +145,34 @@ translateToPirateTalk('excuse me sir where is the restroom');
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
 function wordCount(str) { //go over w jared//can this be done w/o forEach//how
-  // const words = str.split(' '); //['hello' 'world']
-  // const wordCount = {};
-  //   for (i = 0; i < words.length; i++){
-  //     if (words[i] === words){
-  //       wordCount.push([words[i] + 1])
-  //     }else {
-  //       wordCount[i] = 1
-  //     }
-  //   }
+  const words = str.split(' ');
+    const wordCounts = {};
+    words.forEach((word) => {
+      if (wordCounts[word]) {
+        wordCounts[word]++;
+      } else {
+        wordCounts[word] = 1;
+      }
+    });
+    // for (let i = 0; i < words.length; i = i + 1) {
+    //   if (wordCounts[words[i]]) {
+    //     wordCounts[words[i]]++;
+    //   } else {
+    //     wordCounts[words[i]] = 1;
+    //   }
+    // }
+    return wordCounts;
 }
 
+// const words = str.split(' '); //['hello' 'world']
+// const wordCount = {};
+//   for (i = 0; i < words.length; i++){
+//     if (words[i] === words){
+//       wordCount.push([words[i] + 1])
+//     }else {
+//       wordCount[i] = 1
+//     }
+//   }
 // Given an object representing a bug, return true if the given bug is
 // available in the given month.
 //
@@ -178,15 +195,8 @@ function wordCount(str) { //go over w jared//can this be done w/o forEach//how
 //   => true
 //complete but error somewhere!! --ask jared---
 function isBugAvailable(bug, month) {
-  return bug.availibility.months.includes(month)
+  return bug.availability.months.includes(month)
 }
-isBugAvailable({
-      name: 'common butterfly',
-      availibility: {
-        rarity: 'common',
-        months: [9, 10, 11, 12, 1, 2, 3, 4, 5, 6],
-      }
-    }, 1);
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
